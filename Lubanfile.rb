@@ -1,1 +1,1 @@
-stages %w(development integration staging sandbox production)
+stages %w(development)
