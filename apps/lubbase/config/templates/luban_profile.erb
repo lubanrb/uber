@@ -1,0 +1,60 @@
+# Luban environment profile
+# Revision: <%= revision %>
+# Created at <%= Time.now().strftime("%d/%m/%Y %H:%M:%S") %>
+
+# Aliases
+# =======
+
+# Expand aliases under non-interactive shell
+if [ -z "$PS1" ]; then
+  shopt -s expand_aliases
+fi
+
+alias uber='source <%= app_path %>/.envrc'
+alias unset_uber='source <%= app_path %>/.unset_envrc'
+
+uber
+
+# Convenient funtions
+# ===================
+
+lubenv() {
+  if [ -z $1 ]; then
+    { for path in <%= env_path %>/*/*; do
+        echo ${path##*env/}
+      done
+    } | sort | uniq
+  else
+    if [ -e <%= env_path %>/$1/.envrc ]; then
+      source <%= env_path %>/$1/.envrc
+    else
+      echo Environment \"$1\" does NOT exist.
+    fi
+  fi
+}
+
+unset_lubenv() {
+  if [ -z $1 ]; then
+    echo Error! Environment name is MISSING!
+  else
+    if [ -e <%= env_path %>/$1/.envrc ]; then
+      source <%= env_path %>/$1/.unset_envrc
+    else
+      echo Environment \"$1\" does NOT exist.
+    fi
+  fi
+}
+
+which_lubenv() {
+  if [ -n "${LUBAN_ROOT:+x}" ]; then
+    # Check current working environment
+    local current_env=${LUBAN_ROOT##*env/}
+    echo You are using environment \"$current_env\" - $LUBAN_ROOT
+  elif [ -n "${LUBAN_UBER:+x}" ]; then
+    # Check Uber environment
+    local uber_env=${LUBAN_UBER##*env/}
+    echo You are using Uber environment \"$uber_env\" - $LUBAN_UBER
+  else
+    echo No environments are activated.
+  fi
+}
