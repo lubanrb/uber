@@ -1,0 +1,30 @@
+# Luban environment activation resource file
+# Environment: <%= env_name = "#{stage}.#{project}/#{application}" %>
+# Revision: <%= revision %>
+# Created at <%= Time.now().strftime("%d/%m/%Y %H:%M:%S") %>
+
+echo_line() {
+  if [ "$PS1" ]; then
+    printf "$1\n"
+  fi
+}
+
+if [ -n "${LUBAN_UBER:+x}" ]; then
+  if [[ "$LUBAN_UBER" == "<%= app_path %>" ]]; then
+    echo_line "Environment <%= env_name %> has ALREADY been activated!"
+  else
+    local current_env=${LUBAN_UBER##*env/}
+    echo_line "Environment $current_env is STILL active!"
+    echo_line "Please de-activate it first:"
+    echo_line "\tunset_lubenv $current_env"
+    echo_line "\t\tor"
+    echo_line "\tsource $LUBAN_UBER/.unset_envrc"
+  fi
+else
+  LUBAN_UBER="<%= app_path %>"
+  PATH="$LUBAN_UBER/bin:$PATH"
+  export LUBAN_UBER
+  export PATH
+
+  echo_line "Environment <%= env_name %> is activated!"
+fi
