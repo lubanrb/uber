@@ -10,7 +10,7 @@ class Uber
       end
 
       def source_command
-        @source_command ||= "source #{luban_profile_file} #{bashrc_file}"
+        @source_command ||= "source #{luban_profile_file}"
       end
 
       def luban_profile_template_file
