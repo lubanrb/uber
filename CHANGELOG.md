@@ -1,5 +1,14 @@
 # Change log
 
+## Version 0.1.2 (Apr 15, 2016)
+
+Minor enhancements:
+  * Created resource files for Uber environment
+  * Created Luban profile for Uber environment
+    * Convenient aliases
+    * Tab completion for Luban
+  * Handled append/remove Luban profile in bashrc when setup/destroy Uber environment
+
 ## Version 0.1.1 (Apr 13, 2016)
 
 Bug fixes:
