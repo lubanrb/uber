@@ -58,3 +58,69 @@ which_lubenv() {
     echo No environments are activated.
   fi
 }
+
+
+# Bash completions for Luban
+# ==========================
+
+_luban_environments() {
+  COMPREPLY=()
+  local word="${COMP_WORDS[COMP_CWORD]}"
+  local environments="$(lubenv)"
+
+  if [ "$COMP_CWORD" -eq 1 ]; then
+    COMPREPLY=( $(compgen -W "$environments" -- "$word") )
+  fi
+}
+
+complete -F _luban_environments lubenv unset_lubenv
+
+
+# Bash completions for Luban
+# ==========================
+
+_upsearch() {
+  local root_path=$(pwd)
+  while [[ "$root_path" != "" && ! -e "$root_path/$1"  ]]; do
+    root_path=${root_path%/*}
+  done
+  echo "$root_path"
+}
+
+_luban_commands() {
+  echo `$@ -h 2>/dev/null | awk '/Commands:/{p=1;next}/^\s*$/{p=0}p {print $1}'`
+}
+
+_luban_options() {
+  echo `$@ -h 2>/dev/null | awk '/Options:/{p=1;next}/^\s*$/{p=0}p' | grep -o '\-\-\w*'`
+}
+
+_luban() {
+  local root_path=$(_upsearch "Lubanfile.rb")
+  if [ -z "$root_path" ]; then
+    return
+  fi
+
+  COMPREPLY=()
+
+  local word="${COMP_WORDS[COMP_CWORD]}"
+  local line="${COMP_LINE}"
+
+  local opts
+
+  if [ -z "$word" ]; then
+    opts=$(_luban_commands $line)
+  else
+    if [[ ! $word =~ "^\-\-" ]]; then
+      opts=$(_luban_commands ${line% *})
+    fi
+  fi
+
+  if [ -z "$opts" ]; then
+    opts=$(_luban_options ${line%% --*})
+  fi
+
+  COMPREPLY=($(compgen -W "$opts" -- ${word}))
+}
+
+complete -F _luban luban
