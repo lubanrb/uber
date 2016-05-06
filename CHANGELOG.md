@@ -1,5 +1,10 @@
 # Change log
 
+## Version 0.2.0 (May 06, 2016)
+
+New features:
+  * Created deployment of Lubmon application to setup Monit as the monitoring service
+
 ## Version 0.1.2 (Apr 15, 2016)
 
 Minor enhancements:
