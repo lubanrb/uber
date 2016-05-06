@@ -1,5 +1,10 @@
 # Change log
 
+## Version 0.2.1 (May 06, 2016)
+
+Bug fixes:
+  * Added Gemfile for luban-monit
+
 ## Version 0.2.0 (May 06, 2016)
 
 New features:
