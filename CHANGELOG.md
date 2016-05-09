@@ -1,5 +1,15 @@
 # Change log
 
+## Version 0.2.2 (May 09, 2016)
+
+Minor enhancements:
+  * Upgraded Git to 2.8.2
+  * Upgraded Ruby to 2.3.1
+  * Setup httpd for Monit as default configuration
+
+Bug fixes:
+  * Added gem dependency on luban
+
 ## Version 0.2.1 (May 06, 2016)
 
 Bug fixes:
