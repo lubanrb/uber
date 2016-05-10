@@ -13,6 +13,6 @@
   notifempty
   sharedscripts
   postrotate
-    [ ! -f <%= pid_file %> ] || kill -HUP $(cat <%= pid_file %>) 2>/dev/null || true
+    [ ! -f <%= pid_file_path %> ] || kill -HUP $(cat <%= pid_file_path %>) 2>/dev/null || true
   endscript
 }
