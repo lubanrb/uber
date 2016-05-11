@@ -1,5 +1,5 @@
 /.bundle/
+/Gemfile.lock
 .luban/
 vendor/cache/
-Gemfile.lock
 .DS_Store
