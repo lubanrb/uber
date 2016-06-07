@@ -1,1 +1,1 @@
-package "monit", version: "5.17.1", current: true
+package "monit", version: "5.18", current: true
