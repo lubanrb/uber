@@ -1,5 +1,13 @@
 # Change log
 
+## Version 0.2.3 (Jun 07, 2016)
+
+Minor enhancements:
+  * Upgraded Monit to 5.18
+  * Remove monitor and unmonitor undefine tasks since these two are no more common tasks
+  * Update .gitignore to ignore Gemfile.lock
+  * Minor code refactoring
+
 ## Version 0.2.2 (May 09, 2016)
 
 Minor enhancements:
