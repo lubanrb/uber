@@ -1,5 +1,10 @@
 # Change log
 
+## Version 0.2.4 (Jun 16, 2016)
+
+Minor enhancements:
+  * Simplified erb templates by removing header information like revision, environment, etc. 
+
 ## Version 0.2.3 (Jun 07, 2016)
 
 Minor enhancements:
