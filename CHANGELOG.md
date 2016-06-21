@@ -1,5 +1,11 @@
 # Change log
 
+## Version 0.2.5 (Jun 21, 2016)
+
+Minor enhancements:
+  * Enhanced bash completions for Luban to handle non-Luban project
+  * Upgraded Git to 2.9.0
+
 ## Version 0.2.4 (Jun 16, 2016)
 
 Minor enhancements:
