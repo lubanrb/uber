@@ -1,8 +1,9 @@
 # Change log
 
-## Version 0.2.5 (Jun 21, 2016)
+## Version 0.2.6 (Jun 21, 2016)
 
 Minor enhancements:
+  * Standardized deployment configurations on Luban project and applications 
   * Enhanced bash completions for Luban to handle non-Luban project
   * Upgraded Git to 2.9.0
 
