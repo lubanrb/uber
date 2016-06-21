@@ -1,1 +1,1 @@
-# Application deployment configuration for Uber::Lubmon
+# Deployment configuration for application Uber::Lubmon

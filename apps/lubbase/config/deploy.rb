@@ -1,1 +1,1 @@
-# Application deployment configuration for Uber::Lubbase
+# Deployment configuration for application Uber::Lubbase

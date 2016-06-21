@@ -1,4 +1,4 @@
 Uber
 ====
 
-Luban deployment project to manage the Uber enivironment.
+Luban deployment project to manage the Uber environment.

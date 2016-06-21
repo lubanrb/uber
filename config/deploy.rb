@@ -1,3 +1,5 @@
-# Project deployment configuration for Uber
+# Deployment configuration for project Uber 
 
+# Specify process monitor
+# process_monitor_via 'monit'
 
