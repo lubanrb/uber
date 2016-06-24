@@ -1,6 +1,6 @@
 class Uber
   class Lubbase < Luban::Deployment::Application
-    class Builder < Luban::Deployment::Application::Builder
+    class Constructor < Luban::Deployment::Application::Constructor
       def luban_profile_file
         @luban_profile_file ||= app_path.join('.luban_profile')
       end
@@ -17,7 +17,7 @@ class Uber
         @luban_profile_template_file ||= find_template_file("luban_profile.erb")
       end
 
-      def build
+      def setup 
         super
         create_luban_profile
         update_bashrc
