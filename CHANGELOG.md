@@ -1,5 +1,10 @@
 # Change log
 
+## Version 0.2.7 (Jun 24, 2016)
+
+Minor enhancements:
+  * Renamed application Builder to Constructor for better naming convention in Luban
+
 ## Version 0.2.6 (Jun 21, 2016)
 
 Minor enhancements:
