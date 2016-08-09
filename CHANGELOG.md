@@ -1,5 +1,10 @@
 # Change log
 
+## Version 0.2.8 (Aug 09, 2016)
+
+Minor enhancements:
+  * Set parameter #project in Lubanfile by default for the sake of clarity
+
 ## Version 0.2.7 (Jun 24, 2016)
 
 Minor enhancements:
