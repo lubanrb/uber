@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e # exit the script if any statement returns a non-true result
+
+# Uber log archiver is used to rotate and archive application logs
+
+stage=$1
+source_path=$2/$stage.*
+dest_url=$3
+
+echo [$(date)] Log rotation starts
+logrotate -vs pids/logrotate.status /opt/luban/env/$stage.*/*/shared/profile/*/*.logrotate
+echo [$(date)] Log rotation ends
+echo
+
+echo [$(date)] Log archival starts
+rsync --include "*/" --include "*.gz" --exclude "*" -amvhe ssh $source_path $dest_url
+echo [$(date)] Log archival ends
+echo
