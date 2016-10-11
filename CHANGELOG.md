@@ -1,5 +1,15 @@
 # Change log
 
+## Version 0.2.9 (Oct 12, 2016)
+
+New features:
+  * Added application lublog to manage application log rotation and archival
+
+Minor enhancements:
+  * Upgraded Git to version 2.10.1
+  * Upgraded Monit to version 5.19.0
+  * Updated Monitor logrotate configuration
+
 ## Version 0.2.8 (Aug 09, 2016)
 
 Minor enhancements:
