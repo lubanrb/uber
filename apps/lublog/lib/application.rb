@@ -3,8 +3,9 @@ class Uber
     module Parameters
       extend Luban::Deployment::Parameters::Base
  
-      parameter :central_archives_host
       parameter :central_archives_path
+
+      def central_archives_host; primary(:archive) end
 
       def log_archiver_command(cmd = './log-archiver')
         @log_archiver_command = "#{cmd} #{stage} #{local_archives_path} #{central_archives_host}:#{central_archives_path}"
