@@ -1,5 +1,14 @@
 # Change log
 
+## Version 0.2.10 (Oct 13, 2016)
+
+New features:
+  * Added cronjob to kick start Monit in Lubmon after server reboot in Lubmon
+
+Minor enhancements:
+  * Set up central archives server in Lublog
+  * Changed logrotate check interval from 5 min to 10 min in Lublog
+
 ## Version 0.2.9 (Oct 12, 2016)
 
 New features:
