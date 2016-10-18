@@ -14,6 +14,6 @@ echo [$(date)] Log rotation ends
 echo
 
 echo [$(date)] Log archival starts
-rsync --include "*/" --include "*.gz" --exclude "*" -amvhe ssh $source_path $dest_url
+rsync --include "*/" --include "*.gz" --exclude "*" -amvhe "ssh -o StrictHostKeyChecking=no" $source_path $dest_url
 echo [$(date)] Log archival ends
 echo

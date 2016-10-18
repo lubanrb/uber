@@ -11,6 +11,10 @@ class Uber
         @log_archiver_command = "#{cmd} #{stage} #{local_archives_path} #{central_archives_host}:#{central_archives_path}"
       end
 
+      def default_source_path
+        @default_source_path ||= config_finder[:application].base_path.join('app')
+      end
+
       protected
 
       def set_default_archives_parameters
