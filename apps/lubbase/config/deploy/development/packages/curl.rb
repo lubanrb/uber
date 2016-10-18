@@ -1,0 +1,1 @@
+package "curl", version: "7.50.3", current: true
