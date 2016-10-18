@@ -1,5 +1,10 @@
 # Change log
 
+## Version 0.2.11 (Oct 18, 2016)
+
+New features:
+  * Added package for Curl in Lubbase
+
 ## Version 0.2.10 (Oct 13, 2016)
 
 New features:
