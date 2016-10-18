@@ -1,5 +1,12 @@
 # Change log
 
+## Version 0.2.12 (Oct 18, 2016)
+
+Minor enhancements:
+  * Changed default source path to make it unrelated to any environments
+    * This can help eliminate duplicate log-archiver code in every environments
+  * Turned off StrictHostKeyChecking in ssh tunel creation for rsync in log-archiver
+
 ## Version 0.2.11 (Oct 18, 2016)
 
 New features:
