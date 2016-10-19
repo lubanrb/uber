@@ -9,7 +9,7 @@ source_path=$2/$stage.*
 dest_url=$3
 
 echo [$(date)] Log rotation starts
-logrotate -vs pids/logrotate.status /opt/luban/env/$stage.*/*/shared/profile/*/*.logrotate
+logrotate -vs pids/logrotate.status /opt/luban/env/$stage.*/*/shared/profile/*/*.logrotate || true
 echo [$(date)] Log rotation ends
 echo
 
