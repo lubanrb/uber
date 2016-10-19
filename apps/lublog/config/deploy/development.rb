@@ -5,5 +5,3 @@ role :app, `hostname -f`.chomp
 
 # Central archives server
 role :archive, `hostname -f`.chomp
-
-logrotate(every: 10)

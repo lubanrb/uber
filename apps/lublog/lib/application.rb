@@ -24,10 +24,8 @@ class Uber
 
     include Parameters
 
-    DefaultLogRotateInterval = 10 #min
-
-    def logrotate(every: DefaultLogRotateInterval)
-      cronjob schedule: "*/#{every} * * * *",
+    def setup_logrotate
+      cronjob schedule: "*/#{logrotate_interval} * * * *",
               command: ->{ log_archiver_command },
               output: "lublog.log"
     end
@@ -38,6 +36,11 @@ class Uber
       super
       set_default_archives_parameters
       set_default_source
+    end
+
+    def after_configure
+      super
+      setup_logrotate
     end
 
     class Crontab < Luban::Deployment::Application::Crontab
