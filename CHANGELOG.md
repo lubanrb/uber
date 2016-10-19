@@ -1,5 +1,12 @@
 # Change log
 
+## Version 0.2.14 (Oct 19, 2016)
+
+Minor enhancements:
+  * Added environment variable, #LUBAN_LOGROTATE_INTERVAL, in Lubbase to control rotation period
+  * Added method, #setup_logrotate, to setup log rotation
+  * Applied parameters, #logrotate_max_age, #logrotate_count, in Monit logrotate config template
+
 ## Version 0.2.13 (Oct 19, 2016)
 
 Bug fixes:
