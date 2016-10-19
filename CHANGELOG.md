@@ -1,5 +1,11 @@
 # Change log
 
+## Version 0.2.13 (Oct 19, 2016)
+
+Bug fixes:
+  * Ensured logrotate return true always to avoid killing the log archiving script
+    * So that the rsync command could continue no matter whether the logrotate succeeds or not
+
 ## Version 0.2.12 (Oct 18, 2016)
 
 Minor enhancements:
