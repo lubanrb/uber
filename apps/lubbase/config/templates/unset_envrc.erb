@@ -10,6 +10,7 @@ if [ -n "${LUBAN_UBER:+x}" ]; then
   if [[ "$LUBAN_UBER" =~ "<%= app_path %>" ]]; then
     PATH=${PATH//$LUBAN_UBER\/bin:/}
     unset LUBAN_UBER
+    unset LUBAN_LOGROTATE_INTERVAL
     export PATH
     echo_line "Environment <%= env_name %> is de-activated!"
   else

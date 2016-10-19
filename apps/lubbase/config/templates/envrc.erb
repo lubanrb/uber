@@ -19,8 +19,10 @@ if [ -n "${LUBAN_UBER:+x}" ]; then
   fi
 else
   LUBAN_UBER="<%= app_path %>"
+  LUBAN_LOGROTATE_INTERVAL=15
   PATH="$LUBAN_UBER/bin:$PATH"
   export LUBAN_UBER
+  export LUBAN_LOGROTATE_INTERVAL
   export PATH
 
   echo_line "Environment <%= env_name %> is activated!"
