@@ -1,3 +1,3 @@
 class Uber < Luban::Deployment::Project
-  VERSION = '0.2.13'
+  VERSION = '0.2.14'
 end
