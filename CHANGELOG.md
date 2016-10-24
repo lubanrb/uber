@@ -1,5 +1,13 @@
 # Change log
 
+## Version 0.2.15 (Oct 24, 2016)
+
+Minor enhancements
+  * Added lublog.conf to encapsulate configuration data for log-archiver script
+  * Changed logrotate interval to 10 min instead of 15 min
+  * Cleaned up the design and implementation of Lublog app parameters in a deployment project
+    * As a result, bump up gem dependency of Luban to 0.9.11
+
 ## Version 0.2.14 (Oct 19, 2016)
 
 Minor enhancements:
