@@ -19,7 +19,7 @@ if [ -n "${LUBAN_UBER:+x}" ]; then
   fi
 else
   LUBAN_UBER="<%= app_path %>"
-  LUBAN_LOGROTATE_INTERVAL=15
+  LUBAN_LOGROTATE_INTERVAL=10
   PATH="$LUBAN_UBER/bin:$PATH"
   export LUBAN_UBER
   export LUBAN_LOGROTATE_INTERVAL
