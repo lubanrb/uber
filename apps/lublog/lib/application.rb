@@ -1,5 +1,5 @@
 class Uber
-  class Lublog < Luban::Deployment::Application
+  class Lublog < Luban::Deployment::Script
     parameter :central_archives_host
     parameter :central_archives_path
 
