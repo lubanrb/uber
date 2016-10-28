@@ -1,5 +1,11 @@
 # Change log
 
+## Version 0.2.16 (Oct 28, 2016)
+
+New feature:
+  * Used Luban::Deploymnet::Script to define Lublog
+    * As a result, bump up gem dependency of Luban to version 0.9.13
+
 ## Version 0.2.15 (Oct 24, 2016)
 
 Minor enhancements
