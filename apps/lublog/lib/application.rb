@@ -13,13 +13,6 @@ class Uber
     def after_configure
       super
       set :central_archives_host, primary(:archive)
-      setup_logrotate
-    end
-
-    def setup_logrotate
-      cronjob schedule: "*/#{logrotate_interval} * * * *",
-              command: ->{ "./log-archiver #{control_file_path}" },
-              output: "lublog.log"
     end
   end
 end
