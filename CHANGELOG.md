@@ -1,5 +1,10 @@
 # Change log
 
+## Version 0.2.17 (Oct 31, 2016)
+
+Minor enhancements:
+  * Refactored cronjob definition for logrotate
+
 ## Version 0.2.16 (Oct 28, 2016)
 
 New feature:
