@@ -1,5 +1,12 @@
 # Change log
 
+## Version 0.2.18 (Nov 01, 2016)
+
+Minor enhancements:
+  * Speeded up luban tab completion by caching
+  * Upgraded Git to version 2.10.2
+  * Upgraded Monit to version 5.20.0
+
 ## Version 0.2.17 (Oct 31, 2016)
 
 Minor enhancements:
