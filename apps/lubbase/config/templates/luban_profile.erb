@@ -91,21 +91,22 @@ _luban() {
   local word="${COMP_WORDS[COMP_CWORD]}"
   local line="${COMP_LINE}"
 
-  local opts
+  if [ "$_luban_comp_cword" != "${COMP_CWORD}" ]; then
+    _luban_comp_cword="${COMP_CWORD}"
+    if [ -z "$word" ]; then
+      _luban_comp_opts=$(_luban_commands $line)
+    else
+      if [[ ! $word =~ "^\-\-" ]]; then
+        _luban_comp_opts=$(_luban_commands ${line% *})
+      fi
+    fi
 
-  if [ -z "$word" ]; then
-    opts=$(_luban_commands $line)
-  else
-    if [[ ! $word =~ "^\-\-" ]]; then
-      opts=$(_luban_commands ${line% *})
+    if [ -z "$_luban_comp_opts" ]; then
+      _luban_comp_opts=$(_luban_options ${line%% --*})
     fi
   fi
 
-  if [ -z "$opts" ]; then
-    opts=$(_luban_options ${line%% --*})
-  fi
-
-  COMPREPLY=($(compgen -W "$opts" -- ${word}))
+  COMPREPLY=($(compgen -W "$_luban_comp_opts" -- ${word}))
 }
 
 complete -F _luban luban
