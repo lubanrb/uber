@@ -1,5 +1,10 @@
 # Change log
 
+## Version 0.2.19 (Nov 06, 2016)
+
+Minor enhancements:
+  * Added parameter, #skip_archive, to determine whether to archive or not
+
 ## Version 0.2.18 (Nov 01, 2016)
 
 Minor enhancements:
