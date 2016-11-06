@@ -5,15 +5,21 @@
 set -e # exit the script if any statement returns a non-true result
 source $1
 
-source_path="$local_archives_path/$stage.*"
-dest_url="$central_archives_host:$central_archives_path"
-
 echo [$(date)] Log rotation starts
 logrotate -vs pids/logrotate.status /opt/luban/env/$stage.*/*/shared/profile/*/*.logrotate || true
 echo [$(date)] Log rotation ends
 echo
 
+if $skip_archive
+then
+  echo [$(date)] Skipped log archival
+  echo
+  exit
+fi
+
 echo [$(date)] Log archival starts
+source_path="$local_archives_path/$stage.*"
+dest_url="$central_archives_host:$central_archives_path"
 rsync --include "*/" --include "*.gz" --exclude "*" -amvhe "ssh -o StrictHostKeyChecking=no" $source_path $dest_url
 echo [$(date)] Log archival ends
 echo

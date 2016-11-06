@@ -1,4 +1,7 @@
 stage=<%= stage.to_s.inspect %>
+skip_archive=<%= skip_archive.inspect %>
+<% unless skip_archive -%>
 local_archives_path=<%= local_archives_path.to_s.inspect %>
 central_archives_host=<%= central_archives_host.to_s.inspect %>
 central_archives_path=<%= central_archives_path.to_s.inspect %>
+<% end -%>

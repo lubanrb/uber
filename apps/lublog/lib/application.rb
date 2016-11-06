@@ -2,6 +2,7 @@ class Uber
   class Lublog < Luban::Deployment::Script
     parameter :central_archives_host
     parameter :central_archives_path
+    parameter :skip_archive, default: false
 
     protected
 
@@ -12,7 +13,9 @@ class Uber
 
     def after_configure
       super
-      set :central_archives_host, primary(:archive)
+      unless skip_archive
+        set :central_archives_host, primary(:archive)
+      end
     end
   end
 end
