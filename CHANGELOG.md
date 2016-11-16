@@ -1,6 +1,10 @@
 # Change log
 
-## Version 0.2.20 (Nov 16, 2016)
+## Version 0.2.21 (Nov 16, 2016)
+
+Minor enhancements:
+  * Upgraded Ruby in Lubbase to 2.3.2
+  * Upgarded Curl in Lubbase to 7.51.0
 
 Bug fixes:
   * Started Monit without activating envrc in cronjob for server reboot
