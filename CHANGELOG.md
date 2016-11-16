@@ -1,5 +1,11 @@
 # Change log
 
+## Version 0.2.20 (Nov 16, 2016)
+
+Bug fixes:
+  * Started Monit without activating envrc in cronjob for server reboot
+    * As a result, bump up gem dependency of Luban to 0.9.17
+
 ## Version 0.2.19 (Nov 06, 2016)
 
 Minor enhancements:
