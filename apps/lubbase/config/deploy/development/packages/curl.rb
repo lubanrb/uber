@@ -1,1 +1,1 @@
-package "curl", version: "7.50.3", current: true
+package "curl", version: "7.51.0", current: true
