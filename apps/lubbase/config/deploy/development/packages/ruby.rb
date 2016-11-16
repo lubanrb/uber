@@ -1,1 +1,1 @@
-package "ruby", version: "2.3.1", current: true
+package "ruby", version: "2.3.2", current: true
