@@ -10,6 +10,7 @@ fi
 
 alias uber='source <%= app_path %>/.envrc'
 alias unset_uber='source <%= app_path %>/.unset_envrc'
+alias luban='bundle exec luban'
 
 uber
 
@@ -82,7 +83,7 @@ _luban_commands() {
 }
 
 _luban_options() {
-  echo `$@ -h 2>/dev/null | awk '/Options:/{p=1;next}/^\s*$/{p=0}p' | grep -o '\-\-\w*'`
+  echo `$@ -h 2>/dev/null | awk '/Options:/{p=1;next}/^\s*$/{p=0}p' | grep -o '\-\-[A-Za-z0-9_-]*'`
 }
 
 _luban() {
@@ -92,7 +93,6 @@ _luban() {
   local line="${COMP_LINE}"
 
   if [ "$_luban_comp_cword" != "${COMP_CWORD}" ]; then
-    _luban_comp_cword="${COMP_CWORD}"
     if [ -z "$word" ]; then
       _luban_comp_opts=$(_luban_commands $line)
     else
@@ -103,6 +103,12 @@ _luban() {
 
     if [ -z "$_luban_comp_opts" ]; then
       _luban_comp_opts=$(_luban_options ${line%% --*})
+    fi
+
+    if [ -z "$_luban_comp_opts" ]; then
+      _luban_comp_cword="__ERROR__"
+    else
+      _luban_comp_cword="${COMP_CWORD}"
     fi
   fi
 
