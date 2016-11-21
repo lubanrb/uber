@@ -79,11 +79,11 @@ complete -F _luban_environments lubenv unset_lubenv
 # ==========================
 
 _luban_commands() {
-  echo `$@ -h 2>/dev/null | awk '/Commands:/{p=1;next}/^\s*$/{p=0}p {print $1}'`
+  echo `bundle exec $@ -h 2>/dev/null | awk '/Commands:/{p=1;next}/^\s*$/{p=0}p {print $1}'`
 }
 
 _luban_options() {
-  echo `$@ -h 2>/dev/null | awk '/Options:/{p=1;next}/^\s*$/{p=0}p' | grep -o '\-\-[A-Za-z0-9_-]*'`
+  echo `bundle exec $@ -h 2>/dev/null | awk '/Options:/{p=1;next}/^\s*$/{p=0}p' | grep -o '\-\-[A-Za-z0-9_-]*'`
 }
 
 _luban() {
