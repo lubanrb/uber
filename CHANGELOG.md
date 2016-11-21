@@ -1,5 +1,15 @@
 # Change log
 
+## Version 0.3.0 (Nov 21, 2016)
+
+New features:
+  * Used bundler to manage gem dependencies in Uber
+    * Updated project Gemfile to enforce gem dependency of Luban to version 0.10.x
+    * Added alias #bundle to enforce executing luban under the Bundler's context
+
+Bug fixes:
+  * Fixed tab complete for command luban
+
 ## Version 0.2.21 (Nov 16, 2016)
 
 Minor enhancements:
