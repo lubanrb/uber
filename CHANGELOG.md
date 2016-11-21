@@ -1,6 +1,6 @@
 # Change log
 
-## Version 0.3.0 (Nov 21, 2016)
+## Version 0.3.1 (Nov 21, 2016)
 
 New features:
   * Used bundler to manage gem dependencies in Uber
