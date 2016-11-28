@@ -1,5 +1,11 @@
 # Change log
 
+## Version 0.3.2 (Nov 28, 2016)
+
+Bug fixes: 
+  * Bump up gem dependency of luban to 0.10.9 to apply the fix for Curl installation on Linux
+  * Bump up gem dependency of luban-monit to 0.2.11 to apply the recent various bug fixes in Monit
+
 ## Version 0.3.1 (Nov 21, 2016)
 
 New features:
