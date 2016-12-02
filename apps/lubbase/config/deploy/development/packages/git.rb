@@ -1,1 +1,1 @@
-package "git", version: "2.10.2", current: true
+package "git", version: "2.11.0", current: true
