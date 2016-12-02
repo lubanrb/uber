@@ -1,5 +1,12 @@
 # Change log
 
+## Version 0.3.3 (Dec 02, 2016)
+
+Minor enhancements:
+  * Upgraded Ruby in Lubbase to version 2.3.3
+  * Upgraded Git in Lubbase to version 2.11.0
+  * Bump up gem dependency of luban to version 0.10.11
+
 ## Version 0.3.2 (Nov 28, 2016)
 
 Bug fixes: 
