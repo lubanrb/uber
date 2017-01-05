@@ -1,5 +1,11 @@
 # Change log
 
+## Version 0.3.4 (Jan 04, 2016)
+
+Minor enhancements:
+  * Upgraded dependent gem, luban, to version 0.11.0 to utilize the luban project restructure
+  * Upgraded Curl to 7.52.1
+
 ## Version 0.3.3 (Dec 02, 2016)
 
 Minor enhancements:
