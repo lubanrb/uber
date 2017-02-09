@@ -1,0 +1,62 @@
+FROM <%= base_image %>
+MAINTAINER <%= author['name'] %> <%= author['email'].inspect %>
+
+RUN adduser -ms /bin/bash <%= luban_user %> && \
+    mkdir <%= luban_root_path %> && \
+    chown -R <%= luban_user %>:<%= luban_user %> <%= luban_root_path %>
+
+# Install required tools and libs
+RUN yum -y install make gcc which rsync && yum clean all
+
+# Install required libs
+RUN yum -y install zlib-devel perl-devel && yum clean all
+
+# Install docker
+RUN yum -y install yum-utils && \ 
+    yum-config-manager --add-repo \
+    https://docs.docker.com/engine/installation/linux/repo_files/centos/docker.repo && \
+    yum makecache fast && yum -y install docker-engine && yum clean all && \
+    curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
+    chmod +x /usr/local/bin/docker-compose
+
+RUN usermod -aG docker <%= luban_user %> && \
+    usermod -aG ftp <%= luban_user %> # To walkaround the issue of mounting docker socket in OSX
+
+RUN mkdir <%= deployment_projects_path %> && \
+    mkdir <%= downloads_path %> && \
+    mkdir <%= docker_root_path %> && \
+    mkdir <%= tmp_path %> && \
+    mkdir <%= packages_root_path %> && \
+    mkdir <%= releases_root_path %> && \
+    mkdir <%= env_path %> && \
+    chown -R <%= luban_user %>:<%= luban_user %> <%= luban_root_path %>
+
+VOLUME <%= deployment_projects_path %> \
+       <%= downloads_path %> \
+       <%= docker_root_path %> \
+       <%= packages_root_path %> \
+       <%= releases_root_path %> \
+       <%= env_path %>
+
+RUN ln -sf /usr/share/zoneinfo/<%= timezone %> /etc/localtime && \
+    echo "source <%= app_path.join(".luban_profile") %>" >> /home/<%= luban_user %>/.bashrc
+
+<% build[:archives].each_value do |archive| -%>
+ADD <%= archive[:path].basename %> /
+<% end -%>
+
+LABEL luban.project="<%= project %>" \
+      luban.application="<%= project %>" \
+      luban.stage="<%= stage %>" \
+      <%- build[:sources].each_pair do |name, source| -%>
+      luban.<%= name %>_tag="<%= source[:tag] %>" \
+      <%- end -%>
+      luban.build_tag="<%= build_tag %>" \
+      luban.bulid_rev="<%= build[:revision] %>" \
+      luban.luban_user="<%= luban_user %>" \
+      luban.luban_root_path="<%= luban_root_path %>"
+
+USER <%= luban_user %>
+WORKDIR /home/<%= luban_user %>
+
+CMD ["/bin/bash"]
