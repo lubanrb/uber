@@ -1,6 +1,13 @@
 # Change log
 
-## Version 0.3.4 (Jan 04, 2016)
+## Version 0.3.5 (Feb 09, 2017)
+
+Minor enhancements:
+  * Added docker support for Lubbase
+  * Updated gitignore to ignore vendor/bundle if any
+  * Upgraded gem dependency of luban to version 0.12.0 or above
+
+## Version 0.3.4 (Jan 04, 2017)
 
 Minor enhancements:
   * Upgraded dependent gem, luban, to version 0.11.0 to utilize the luban project restructure
