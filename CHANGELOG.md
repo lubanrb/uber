@@ -1,11 +1,20 @@
 # Change log
 
+## Version 0.3.6 (Feb 15, 2017)
+
+Minor enhancements:
+  * Added support for new enhancements from Luban 0.12.3
+    * Supported luban_uid to avoid permission issues on docker data volume
+    * Used TZ to setup docker image timezone during run-time instead of build-time
+  * Bump up build tag to 1.0.1
+
 ## Version 0.3.5 (Feb 09, 2017)
 
 Minor enhancements:
   * Added docker support for Lubbase
   * Updated gitignore to ignore vendor/bundle if any
   * Upgraded gem dependency of luban to version 0.12.0 or above
+  * Initialized build tag to 1.0.0
 
 ## Version 0.3.4 (Jan 04, 2017)
 
