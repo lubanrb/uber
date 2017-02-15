@@ -2,8 +2,14 @@ version: "3"
 
 services:
   <%= application %>:
-    build: ./context
+    build:
+      context: ./context
+      args:
+        luban_uid: $LUBAN_UID
+        luban_user: $LUBAN_USER
     image: <%= build[:image_tag] %>
+    environment:
+      TZ: <%= timezone %>
     volumes:
       - projects:<%= deployment_projects_path %>
       - downloads:<%= downloads_path %>
@@ -12,10 +18,10 @@ services:
       - releases:<%= releases_root_path %>
       - env:<%= env_path %>
       - /var/run/docker.sock:/var/run/docker.sock
-      - $HOME/.docker:/home/<%= luban_user %>/.docker
-      - $HOME/.ssh:/home/<%= luban_user %>/.ssh
-      - $HOME/.lubanrc:/home/<%= luban_user %>/.lubanrc
-      - $HOME/.gitconfig:/home/<%= luban_user %>/.gitconfig
+      - $HOME/.docker:/home/$LUBAN_USER/.docker
+      - $HOME/.ssh:/home/$LUBAN_USER/.ssh
+      - $HOME/.lubanrc:/home/$LUBAN_USER/.lubanrc
+      - $HOME/.gitconfig:/home/$LUBAN_USER/.gitconfig
     entrypoint: /bin/bash
     stdin_open: true
     tty: true
