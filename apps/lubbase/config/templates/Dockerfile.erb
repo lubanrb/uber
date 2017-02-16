@@ -23,13 +23,11 @@ RUN yum -y install make gcc which rsync openssh-clients && \
     curl -L "https://github.com/docker/compose/releases/download/$docker_compose_version/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
     chmod +x /usr/local/bin/docker-compose
 
-# Add application archives
-ADD <%= build[:archives].collect { |_, a| a[:path].basename }.join(" \\\n    ") %> /
-
 # Create luban user with the given luban_uid
 # Adding luban user to the ftp group is to walk around an issue in mounting docker socket in OSX
 RUN adduser -ms /bin/bash -u $luban_uid -G docker,ftp $luban_user && \
     echo "source <%= app_path.join(".luban_profile") %>" >> /home/$luban_user/.bashrc && \
+    mkdir -p $luban_root_path && \
     mkdir -p <%= deployment_projects_path %> && \
     mkdir -p <%= downloads_path %> && \
     mkdir -p <%= docker_root_path %> && \
@@ -38,6 +36,9 @@ RUN adduser -ms /bin/bash -u $luban_uid -G docker,ftp $luban_user && \
     mkdir -p <%= env_path %> && \
     mkdir -p <%= tmp_path %> && \
     chown -R $luban_user:$luban_user $luban_root_path
+
+# Add application archives
+ADD <%= build[:archives].collect { |_, a| a[:path].basename }.join(" \\\n    ") %> /
 
 # Populate image labels
 LABEL luban.project="<%= project %>" \
