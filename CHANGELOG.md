@@ -1,5 +1,12 @@
 # Change log
 
+## Version 0.3.7 (Feb 16, 2017)
+
+Minor enhancements:
+  * Added new parameters, #docker_engine_version, #docker_compose_version and #luban_root_path
+  * Cleaned up and optimized Dockerfile and compose file
+  * Bump up build tag to 1.0.2
+
 ## Version 0.3.6 (Feb 15, 2017)
 
 Minor enhancements:
