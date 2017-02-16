@@ -1,5 +1,8 @@
 class Uber
   class Lubbase < Luban::Deployment::Application
+    parameter :docker_engine_version, default: '1.13.1'
+    parameter :docker_compose_version, default: '1.11.1'
+
     class Constructor < Luban::Deployment::Application::Constructor
       def luban_profile_file
         @luban_profile_file ||= app_path.join('.luban_profile')

@@ -5,18 +5,16 @@ services:
     build:
       context: ./context
       args:
+        docker_engine_version: $DOCKER_ENGINE_VERSION
+        docker_compose_version: $DOCKER_COMPOSE_VERSION
         luban_uid: $LUBAN_UID
         luban_user: $LUBAN_USER
+        luban_root_path: $LUBAN_ROOT_PATH
     image: <%= build[:image_tag] %>
     environment:
       TZ: <%= timezone %>
     volumes:
-      - projects:<%= deployment_projects_path %>
-      - downloads:<%= downloads_path %>
-      - docker:<%= docker_root_path %>
-      - packages:<%= packages_root_path %>
-      - releases:<%= releases_root_path %>
-      - env:<%= env_path %>
+      - luban_repo:$LUBAN_ROOT_PATH
       - /var/run/docker.sock:/var/run/docker.sock
       - $HOME/.docker:/home/$LUBAN_USER/.docker
       - $HOME/.ssh:/home/$LUBAN_USER/.ssh
@@ -27,9 +25,4 @@ services:
     tty: true
 
 volumes:
-  projects:
-  downloads:
-  docker:
-  packages:
-  releases:
-  env:
+  luban_repo:
