@@ -1,5 +1,13 @@
 # Change log
 
+## Version 0.3.9 (Feb 17, 2017)
+
+Minor enhancements:
+  * Merged individual package config files into stage config file
+  * Added a new stage, #standard, for Lubbase deployment as a stand-alone product
+  * Optimized Dockerfile.erb to make use of new Luban parameter for docker, #base_packages
+    * As a result, bump up gem dependency of Luban to version 0.12.5 or above
+
 ## Version 0.3.8 (Feb 16, 2017)
 
 Minor enhancements:
