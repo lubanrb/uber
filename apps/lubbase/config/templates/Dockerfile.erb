@@ -7,16 +7,18 @@ ARG luban_uid
 ARG luban_user
 ARG luban_root_path
 
+<% if has_base_packages? -%>
 # Install required tools and libraries
-RUN yum -y install make gcc which rsync openssh-clients && \
-    yum -y install zlib-devel perl-devel && \
+RUN yum -y install \
+<%= "        " + base_packages.join(" \\\n        ") %> && \
+    yum clean all && \
+<% end -%>
     \
     # Install docker engine
     yum -y install yum-utils && \ 
     yum-config-manager --add-repo \
     https://docs.docker.com/engine/installation/linux/repo_files/centos/docker.repo && \
     yum makecache fast && yum -y install docker-engine-$docker_engine_version && \
-    \
     yum clean all && \
     \
     # Install docker compose
@@ -39,6 +41,8 @@ RUN adduser -ms /bin/bash -u $luban_uid -G docker,ftp $luban_user && \
 
 # Add application archives
 ADD <%= build[:archives].collect { |_, a| a[:path].basename }.join(" \\\n    ") %> /
+
+# RUN chown -R $luban_user:$luban_user $luban_root_path
 
 # Populate image labels
 LABEL luban.project="<%= project %>" \
