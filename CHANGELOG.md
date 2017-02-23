@@ -1,5 +1,14 @@
 # Change log
 
+## Version 0.3.10 (Feb 23, 2017)
+
+Minor enhancements:
+  * Added new parameters, #docker_gid, #docker_group, to avoid permission issues on docker socket
+  * Upgraded Git in development to version 2.11.1
+  * Upgraded Ruby in development to version 2.4.0
+  * Bump up build tag to 1.0.4
+  * Bump up gem dependency of luban to version 0.12.8
+
 ## Version 0.3.9 (Feb 17, 2017)
 
 Minor enhancements:
