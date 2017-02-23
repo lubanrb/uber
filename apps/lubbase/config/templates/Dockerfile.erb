@@ -3,9 +3,14 @@ MAINTAINER <%= author['name'] %> <%= author['email'].inspect %>
 
 ARG docker_engine_version
 ARG docker_compose_version
+ARG docker_gid
+ARG docker_group
 ARG luban_uid
 ARG luban_user
 ARG luban_root_path
+
+# Create docker group with the given docker gid
+RUN groupadd -g $docker_gid $docker_group
 
 <% if has_base_packages? -%>
 # Install required tools and libraries
@@ -25,7 +30,7 @@ RUN yum -y install \
     curl -L "https://github.com/docker/compose/releases/download/$docker_compose_version/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
     chmod +x /usr/local/bin/docker-compose
 
-# Create luban user with the given luban_uid
+# Create luban user with the given luban uid
 # Adding luban user to the ftp group is to walk around an issue in mounting docker socket in OSX
 RUN adduser -ms /bin/bash -u $luban_uid -G docker,ftp $luban_user && \
     echo "source <%= app_path.join(".luban_profile") %>" >> /home/$luban_user/.bashrc && \
@@ -49,7 +54,7 @@ LABEL luban.project="<%= project %>" \
       luban.application="<%= project %>" \
       luban.stage="<%= stage %>" \
       <%- build[:sources].each_pair do |name, source| -%>
-      luban.<%= name %>_tag="<%= source[:tag] %>" \
+      luban.<%= name %>.source_tag="<%= source[:tag] %>" \
       <%- end -%>
       luban.build_tag="<%= build_tag %>" \
       luban.bulid_rev="<%= build[:revision] %>" \
@@ -60,6 +65,8 @@ LABEL luban.project="<%= project %>" \
       <%- end -%>
       luban.docker_engine="$docker_engine_version" \
       luban.docker_compose="$docker_compose_version" \
+      luban.docker_gid="$docker_gid" \
+      luban.docker_group="$docker_group" \
       luban.luban_uid="$luban_uid" \
       luban.luban_user="$luban_user" \
       luban.luban_root_path="$luban_root_path"

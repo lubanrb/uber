@@ -1,7 +1,15 @@
+require 'etc'
+
 class Uber
   class Lubbase < Luban::Deployment::Application
     parameter :docker_engine_version, default: '1.13.1'
     parameter :docker_compose_version, default: '1.11.1'
+    parameter :docker_gid, default: ->{ current_docker_gid }
+    parameter :docker_group, default: 'docker'
+
+    def current_docker_gid
+      Etc.getgrnam(docker_group).gid
+    end
 
     class Constructor < Luban::Deployment::Application::Constructor
       def luban_profile_file
