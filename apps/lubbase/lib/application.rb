@@ -2,8 +2,8 @@ require 'etc'
 
 class Uber
   class Lubbase < Luban::Deployment::Application
-    parameter :docker_engine_version, default: '1.13.1'
-    parameter :docker_compose_version, default: '1.11.1'
+    parameter :docker_engine_version, default: '17.03.0.ce-1.el7.centos'
+    parameter :docker_compose_version, default: '1.11.2'
     parameter :docker_gid, default: ->{ current_docker_gid }
     parameter :docker_group, default: 'docker'
 
