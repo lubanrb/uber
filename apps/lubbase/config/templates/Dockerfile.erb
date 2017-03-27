@@ -10,7 +10,8 @@ ARG luban_user
 ARG luban_root_path
 
 # Install required tools and libraries
-RUN yum -y install \
+RUN yum -y install epel-release && \
+    yum -y install \
         <%= base_packages.join(" \\\n        ") %> && \
     yum clean all && \
     \
