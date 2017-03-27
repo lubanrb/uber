@@ -1,5 +1,18 @@
 # Change log
 
+## Version 0.3.11 (Mar 27, 2017)
+
+Minor enhancements:
+  * Upgraded gem dependency of luban to version 0.12.9
+  * Refactored Dockerfile template
+  * Added dev package dependencies for nodejs, mysql & sqlite
+  * Upgraded Curl to version 7.53.1
+  * Upgraded Git to 2.12.0
+  * Upgraded docker engine version to 17.03.0.ce-1.el7.centos
+  * Upgraded docker compose version to 1.11.2
+  * Bump up build tag to 1.0.5
+
+
 ## Version 0.3.10 (Feb 23, 2017)
 
 Minor enhancements:
