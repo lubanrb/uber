@@ -9,21 +9,19 @@ ARG luban_uid
 ARG luban_user
 ARG luban_root_path
 
-# Create docker group with the given docker gid
-RUN groupadd -g $docker_gid $docker_group
-
-<% if has_base_packages? -%>
 # Install required tools and libraries
 RUN yum -y install \
-<%= "        " + base_packages.join(" \\\n        ") %> && \
+        <%= base_packages.join(" \\\n        ") %> && \
     yum clean all && \
-<% end -%>
+    \
+    # Create docker group with the given docker gid
+    groupadd -g $docker_gid $docker_group && \
     \
     # Install docker engine
     yum -y install yum-utils && \ 
     yum-config-manager --add-repo \
-    https://docs.docker.com/engine/installation/linux/repo_files/centos/docker.repo && \
-    yum makecache fast && yum -y install docker-engine-$docker_engine_version && \
+    https://download.docker.com/linux/centos/docker-ce.repo && \
+    yum makecache fast && yum -y install docker-ce-$docker_engine_version && \
     yum clean all && \
     \
     # Install docker compose
