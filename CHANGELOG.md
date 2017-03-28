@@ -1,6 +1,10 @@
 # Change log
 
-## Version 0.3.12 (Mar 28, 2017)
+## Version 0.3.13 (Mar 28, 2017)
+
+Minor enhancements:
+  * Upgraded Ruby to version 2.4.1
+  * Upgraded gem dependency of luban to version 0.12.10
 
 Bug fixes:
   * Installed epel-release package repo before the installation of nodejs
