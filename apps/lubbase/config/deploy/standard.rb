@@ -11,4 +11,4 @@ base_packages [ "make", "gcc", "which", "rsync", "openssh-clients",
 
 package "curl", version: "7.53.1", current: true
 package "git", version: "2.12.0", current: true
-package "ruby", version: "2.4.0", current: true
+package "ruby", version: "2.4.1", current: true
