@@ -21,7 +21,7 @@ services:
       - $HOME/.docker:/home/$LUBAN_USER/.docker
       - $HOME/.ssh:/home/$LUBAN_USER/.ssh
       - $HOME/.gitconfig:/home/$LUBAN_USER/.gitconfig
-    entrypoint: /bin/bash
+    command: /bin/bash
     stdin_open: true
     tty: true
 
