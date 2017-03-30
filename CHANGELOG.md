@@ -1,5 +1,13 @@
 # Change log
 
+## Version 0.3.14 (Mar 30, 2017)
+
+Minor enhancements:
+  * Upgraded gem dependency of luban to version 0.12.12
+    * To adopt choosing Dockerfile template by base OS
+    * As a result, renamed Dockerfile.erb to Dockerfile.centos.erb
+  * Changed to use command instead of entrypoint to set init command for Lubbase
+
 ## Version 0.3.13 (Mar 28, 2017)
 
 Minor enhancements:
